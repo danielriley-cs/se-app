@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Post Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+   .layer1 {
+    margin-left: 20;
+    padding: 10px; /*
+   }
+  </style>
+</head>
+<header th:insert="blocks/header :: header"></header>
+<body>
+<td class="b-table_cell">
+    <form class="software_engineering_class_form layer1"
+          action="/api"
+          role="post"
+          aria-label="post in the local file">
+        <div class="post_input">
+            <span class="post_span">
+                    <input class="input_control" tabindex="2" spellcheck="false" aria-label="post" id="text" maxlength="400" name="post_text"></span>
+            </span>
+        </div>
+        <div class="post_button">
+            <button class="post button" tabindex="-1" role="button" type="submit">
+                <span class="button__text">Post</span>
+            </button>
+        </div>
+    </form>
+</td>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<div th:fragment="header">
+    <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <nav class="my-2 my-md-0 me-md-3">
+            <a class="p-2 text-dark" href="/api?post_text=">Post</a>
+            <a class="p-2 text-dark" href="/history">History</a>
+            <a class="p-2 text-dark" href="/delete?post_text=">Delete</a>
+        </nav>
+        <nav style="position: absolute; right: 20px;">
+            <th:block th:if="${!isLoggedIn}">
+                You aren't logged in. Log in
+                <a href="/login">here</a>.
+                Use a local database instead
+                <a href="/login_local">here</a>.
+            </th:block>
+            <th:block th:if="${isLoggedIn}">
+                You are currently logged in.
+                <a href="/logout">Log out</a>.
+            </th:block>
+        </nav>
+    </header>
+</div>

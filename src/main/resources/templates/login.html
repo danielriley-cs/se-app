@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+   .layer1 {
+    margin-left: 20;
+    padding: 10px; /*
+   }
+  </style>
+</head>
+<header th:insert="blocks/header :: header"></header>
+<body>
+    <th:block th:if="${loginFailed}">
+        <p> Login failed. Please try again. <br/> </p>
+    </th:block>
+    <th:block th:if="${!isLoggedIn}">
+        <form class="software_engineering_class_form layer1"
+              action="/login"
+              role="post"
+              aria-label="login to the posting app">
+            <p> DB Hostname/IP </p>
+            <input class="input_control" id="dbHost" maxlength="200" name="dbHost" required>
+            <p> DB Name </p>
+            <input class="input_control" id="dbDBName" maxlength="200" name="dbDBName" required>
+            <p> Username for DB </p>
+            <input class="input_control" id="dbUser" maxlength="200" name="dbUser" required>
+            <p> Password for DB </p>
+            <input class="input_control" id="dbPass" maxlength="200" name="dbPass" type="password" required>
+
+            <p> SSH Jump Host </p>
+            <input class="input_control" id="jumpHost" maxlength="200" name="jumpHost" placeholder="(optional)">
+            <p> SSH Jump Username </p>
+            <input class="input_control" id="jumpUser" maxlength="200" name="jumpUser" placeholder="(optional)">
+            <p> SSH Jump Password </p>
+            <input class="input_control" id="jumpPass" maxlength="200" name="jumpPass" type="password" placeholder="(optional)">
+            <br>
+            <br>
+            <button role="button" formmethod="post" type="submit">Login</button>
+        </form>
+    </th:block>
+    <th:block th:if="${isLoggedIn}">
+        <p>
+            You are already logged in. Click <a href="/">here</a> to return to
+            the home page.
+        </p>
+    </th:block>
+</body>
+</html>
